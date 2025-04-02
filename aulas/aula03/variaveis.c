@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int inteiro = 0;
+
 int main(){
     char tecla;
     int numero;
@@ -21,6 +23,13 @@ int main(){
     dizima = 2.33333333333;
     printf("Valor da dizima = %.10f\n", dizima);
 
+    int inteiro = 10;
+    printf("%i\n", inteiro);
 
+    {
+        int inteiro = 20;
+        printf("%i\n", inteiro);
+
+    }
     return 0;
 }
