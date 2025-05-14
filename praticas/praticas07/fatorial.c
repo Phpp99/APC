@@ -1,17 +1,22 @@
 #include <stdio.h>
 
-int main(){
+int main() {
     int numero;
-    int fatorial;
+    int fatorial = 1;
 
-    printf("Digite um numero: ");
+    printf("Digite um numero para calcular : ");
     scanf("%i", &numero);
 
-    for(int i=numero; i>0; i--) {
+    for (int i = numero; i > 0; i--) {
         fatorial = fatorial * i;
     }
-    
-    printf("Digite um %i e %i")
-    
+
+    printf("O fatorial de %i e %i\n", numero, fatorial);
+
     return 0;
 }
+
+
+
+
+
