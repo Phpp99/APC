@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+    {
+	int a, b;
+	int x, y;
+	int q, resto;
+	int i;
+
+    printf("Calculando o MDC e o MMC: \n");
+    printf("Entre com o valor de a e b:\n");
+    scanf("%d %d", &a, &b);
+    
+    if (a == 0 || b == 0)
+        {
+        printf("Os valores de a e b devem ser diferentes de zero!\n");
+        return 0;
+        }
+        
+    x = (a < 0) ? -a : a;
+    y = (b < 0) ? -b : b;
+    if (y > x) // se b > a, troca os valores
+        {
+        i = x;
+        x = y;
+        y = i;
+        }
+        
+    resto = y;
+    y = x;
+    do  
+        {
+        x = y;
+        y = resto;
+        q = x / y;
+        resto = x % y;
+        }
+    while (resto != 0);
+    
+    printf("MDC(%d,%d) = %d\n", a, b, y);
+    printf("MMC(%d,%d) = %d", a, b, abs(a * b) / y);
+    
+	return 0;
+    }

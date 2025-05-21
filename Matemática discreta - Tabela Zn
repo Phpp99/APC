@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+void cabecalho(int n, char sinal)
+    {
+    int i;
+    printf("|  %c |", sinal);
+    for (i = 0 ; i < n ; i++)
+        printf(" %2d |", i);
+    printf("\n");
+    }
+    
+void separador(int n)
+    {
+    int i;
+    printf("|----|");
+    for (i = 0 ; i < n ; i++)
+        printf("----|");
+    printf("\n");
+    }
+
+void rodape(int n)
+    {
+    int i;
+    printf("------");
+    for (i = 0 ; i < n ; i++)
+        printf("-----");
+    printf("\n");
+    }
+    
+void corpo(int n, char sinal)
+    {
+    int i, j;
+    for (i = 0 ; i < n ; i++)
+        {
+        printf("| %2d |", i);
+        for (j = 0 ; j < n ; j++)
+            printf(" %2d |", ((sinal == '+') ? (i + j) : (i * j)) % n);    
+        printf("\n");
+        }
+    }
+    
+int main()
+    {
+    int n;
+    printf("Calculando as tabelas de soma e multiplicacao modular para Zn\n");
+    printf("Entre com o valor de n (de 1 a 25): \n");
+    scanf("%d", &n);
+    if (n <= 0)
+        {
+        printf("O valor de n deve ser positivo\n");
+        return 0;
+        }
+    if (n > 25)
+        {
+        printf("O valor de n deve ser menor que ou igual a 25");
+        return 0;
+        }
+
+    cabecalho(n,'+');
+    separador(n);
+    corpo(n,'+');
+    rodape(n);
+    printf("\n");
+    cabecalho(n,'x');
+    separador(n);
+    corpo(n,'x');
+    rodape(n);
+    
+    return 0;
+    }
